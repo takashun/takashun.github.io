@@ -1,6 +1,69 @@
-@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
-@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+@import url('http://fonts.googleapis.com/earlyaccess/notosansjp.css');
+@import url('https://fonts.googleapis.com/css?family=Dosis:200, 400');
+
+@font-face {
+    font-family: "Yu Gothic";
+    src: local("Yu Gothic Medium");
+    font-weight: 100;
+}
+@font-face {
+    font-family: "Yu Gothic";
+    src: local("Yu Gothic Medium");
+    font-weight: 200;
+}
+@font-face {
+    font-family: "Yu Gothic";
+    src: local("Yu Gothic Medium");
+    font-weight: 300;
+}
+@font-face {
+    font-family: "Yu Gothic";
+    src: local("Yu Gothic Medium");
+    font-weight: 400;
+}
+@font-face {
+    font-family: "Yu Gothic";
+    src: local("Yu Gothic Bold");
+    font-weight: bold;
+}
 
 body {
-    font-family: Lato, "Noto Sans JP", "游ゴシック Medium", "游ゴシック体", "Yu Gothic Medium", YuGothic, "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    font-family: "Noto Sans JP", "游ゴシック Medium", "游ゴシック体", "Yu Gothic Medium", YuGothic, "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+
+#background {
+    background-image: url(../img/IMG_1080_s.jpg);
+    background-size: cover;
+}
+
+#main-title {
+    font-size: 4rem;
+    font-weight: 100;
+    margin-bottom: 2rem;
+}
+
+.white {
+    color: white;
+}
+
+.font-yugothic {
+    font-family: "Yu Gothic", YuGothic, sans-serif;;
+}
+
+.font-dosis {
+    font-family: 'Dosis', sans-serif;
+}
+
+.image.is-256x256 {
+    height: 256px;
+    width: 256px;
+}
+
+.headline:after {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 25px;
+    background-color: grey;
+    margin: 25px auto;
 }
