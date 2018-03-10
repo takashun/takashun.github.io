@@ -42,10 +42,6 @@ body {
     margin-bottom: 2rem;
 }
 
-.white {
-    color: white;
-}
-
 .font-yugothic {
     font-family: "Yu Gothic", YuGothic, sans-serif;;
 }
@@ -64,6 +60,52 @@ body {
     display: block;
     height: 1px;
     width: 25px;
-    background-color: grey;
+    background-color: #824880;
     margin: 25px auto;
+}
+
+.profile-headline {
+    padding: 0.25em 0.5em;
+    border-left: solid 5px #824880;
+    background: transparent;
+}
+
+.media-content {
+    overflow: hidden;
+}
+
+.tile.is-parent {
+    padding: 0;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+    .profile {
+        display: block;
+    }
+
+    .profile-image {
+        margin: 0 auto 1em;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    .tile.is-child:not(:last-child) {
+        margin-right: 1rem !important;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .profile {
+        display: block;
+    }
+
+    .profile-image {
+        margin: 0 auto 1em;
+    }
+
+    .tile.is-child:not(:last-child) {
+        margin-bottom: 1rem !important;
+    }
 }

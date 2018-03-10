@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Shun Takano's portfolio</title>
+  <meta property="og:title" content="Shun Takano's portfolio">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://takashun.github.io">
+  <meta property="og:image" content="https://takashun.github.io/img/IMG_1080_s.jpg">
+  <meta property="og:site_name" content="Shun Takano's portfolio">
+  <meta property="og:description" content="高野 瞬のポートフォーリオ">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@ask_takashun">
+  <meta name="twitter:player" content="@ask_takashun">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
   <link rel="stylesheet" href="css/index.css">
 </head>
@@ -11,8 +20,8 @@
 <section id="background" class="hero is-large">
   <div class="hero-body">
     <div class="container has-text-centered">
-      <p id="main-title" class="title is-1 font-dosis white">Shun Takano's portfolio</p>
-      <p class="subtitle is-3 font-yugothic white">エンジニア見習い</p>
+      <p id="main-title" class="title is-1 font-dosis has-text-white">Shun Takano's portfolio</p>
+      <p class="subtitle is-3 font-yugothic has-text-white">エンジニア見習い</p>
     </div>
   </div>
 </section>
@@ -21,20 +30,31 @@
     <h1 class="title is-2 font-dosis"><i class="far fa-user"></i> Profile</h1>
   </div>
   <div class="container">
-    <article class="media">
+    <article class="media profile">
       <figure class="media-left">
-        <p class="image is-256x256">
+        <p class="image is-256x256 profile-image">
           <img src="https://bulma.io/images/placeholders/128x128.png">
         </p>
       </figure>
       <div class="media-content">
         <div class="content">
-          <h1>自己紹介</h1>
-          <p>書くことがありません。色々勉強中です。</p>
+          <h1 class="profile-headline">自己紹介</h1>
+          <p>特筆するような取り柄はまだ無いです。色々勉強中です。</p>
         </div>
         <div class="content">
-          <h1>興味・関心</h1>
-          <p>writing now...</p>
+          <h1 class="profile-headline">関心・興味・勉強中</h1>
+          <div class="tags">
+            <span class="tag is-large">Java</span>
+            <span class="tag is-large">Python</span>
+            <span class="tag is-large">C++</span>
+            <span class="tag is-large">PHP</span>
+            <span class="tag is-large">HTML</span>
+            <span class="tag is-large">CSS</span>
+            <span class="tag is-large">JavaScript</span>
+            <span class="tag is-large">REST API</span>
+            <span class="tag is-large">デザイン</span>
+            <span class="tag is-large">画像・映像編集</span>
+          </div>
         </div>
       </div>
     </article>
@@ -45,7 +65,22 @@
     <h1 class="title is-2 font-dosis"><i class="fas fa-code"></i> Works</h1>
   </div>
   <div class="container">
-    <p>writing now...</p>
+    <div class="tile is-parent">
+      <article class="tile is-child notification is-info">
+        <p class="title">制作中</p>
+        <p class="subtitle">development now...</p>
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/640x480.png">
+        </figure>
+      </article>
+      <article class="tile is-child notification is-info">
+        <p class="title">制作中</p>
+        <p class="subtitle">development now...</p>
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/640x480.png">
+        </figure>
+      </article>
+    </div>
   </div>
 </section>
 </body>
