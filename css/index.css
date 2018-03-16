@@ -78,18 +78,6 @@ body {
     padding: 0;
 }
 
-
-
-@media only screen and (max-width: 768px) {
-    .profile {
-        display: block;
-    }
-
-    .profile-image {
-        margin: 0 auto 1em;
-    }
-}
-
 @media only screen and (min-width: 769px) {
     .tile.is-child:not(:last-child) {
         margin-right: 1rem !important;
