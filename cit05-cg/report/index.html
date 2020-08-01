@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>1832087 CGs</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
+    <script src="https://rawgithub.com/mrdoob/three.js/dev/examples/js/controls/OrbitControls.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', init);
+
+        function init() {
+            // サイズを指定
+            const width = 960;
+            const height = 540;
+
+            // レンダラーを作成
+            const renderer = new THREE.WebGLRenderer({
+                canvas: document.querySelector('#myCanvas')
+            });
+            renderer.setSize(width, height);
+            renderer.shadowMap.enabled = true;
+
+            // シーンを作成
+            const scene = new THREE.Scene();
+
+            //scene.background = new THREE.Color( 0xffffff );
+
+            const axes = new THREE.AxesHelper(25);
+            //scene.add(axes);
+
+
+            // カメラを作成
+            const camera = new THREE.PerspectiveCamera(45, width / height);
+            // カメラの初期座標を設定
+            camera.position.set(0, 0, 20);
+
+            // カメラコントローラーを作成
+            const controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+            const fontLoader = new THREE.FontLoader();
+
+            const planeGeometry = new THREE.PlaneGeometry(50,50);
+            const planeMaterial = new THREE.MeshPhongMaterial({ color: 0xDFF2FC });
+            const plane = new THREE.Mesh(planeGeometry,planeMaterial);
+            plane.receiveShadow = true;
+            plane.rotation.set( -Math.PI/2, 0, 0 );
+            plane.position.set(0,-5.0,0);
+            scene.add(plane);
+
+            const wkuma = new THREE.Group();
+
+            const material = new THREE.MeshStandardMaterial({ color: 0x00ffff });
+
+            const bodyG = new THREE.SphereGeometry( 2, 16, 12 );
+            bodyG.applyMatrix( new THREE.Matrix4().makeScale( 1.0, 1.2, 1.8 ) );
+            const body = new THREE.Mesh(bodyG, material);
+            body.castShadow = true;
+
+            const headG = new THREE.SphereGeometry( 1.2, 16, 12 );
+            const head = new THREE.Mesh(headG, material);
+            head.position.set(0,1.5,4);
+            head.castShadow = true;
+
+            const wingRG = new THREE.SphereGeometry( 2, 16, 12 );
+            wingRG.applyMatrix( new THREE.Matrix4().makeScale( 1.4, 0.2, 0.5 ) );
+            const wingR = new THREE.Mesh(wingRG, material);
+            wingR.rotation.set(0,0,Math.PI/9);
+            wingR.position.set(3.3,1.2,0.4);
+            wingR.castShadow = true;
+
+            const wingLG = new THREE.SphereGeometry( 2, 16, 12 );
+            wingLG.applyMatrix( new THREE.Matrix4().makeScale( 1.4, 0.2, 0.5 ) );
+            const wingL = new THREE.Mesh(wingLG, material);
+            wingL.rotation.set(0,0,-Math.PI/9);
+            wingL.position.set(-3.3,1.2,0.4);
+            wingL.castShadow = true;
+
+            wkuma.add(body)
+            wkuma.add(head)
+            wkuma.add(wingR)
+            wkuma.add(wingL)
+
+            scene.add(wkuma)
+
+            // 平行光源1
+            const directionalLight1 = new THREE.DirectionalLight(0xffffff,0.3);
+            directionalLight1.position.set(100, 100, 100);
+            //directionalLight1.castShadow = true;
+            // シーンに追加
+            scene.add(directionalLight1);
+            // 平行光源2
+            const directionalLight2 = new THREE.DirectionalLight(0xffffff,0.3);
+            directionalLight2.position.set(-100, 100, 100);
+            //directionalLight2.castShadow = true;
+            // シーンに追加
+            scene.add(directionalLight2);
+
+
+            // 照明を作成SpotLight(色, 光の強さ, 距離, 照射角, ボケ具合, 減衰率)
+            const spotlight1 = new THREE.SpotLight(0xffffff, 1, 100, Math.PI / 4, 0.2);
+            spotlight1.position.set(0,10, -5);
+// ライトに影を有効にする
+            spotlight1.castShadow = true;
+            scene.add(spotlight1)
+
+            const lightHelper = new THREE.SpotLightHelper(spotlight1);
+            //scene.add(lightHelper);
+
+            //空のジオメトリを作って
+            const geometry = new THREE.Geometry();
+            //表示する範囲を宣言して
+            const SIZE = 3000;
+            //表示するパーティクルの数を決めて
+            const LENGTH = 20000;
+            //その数まで四方八方に表示させるループ処理をする
+            for (let i = 0; i < LENGTH; i++){
+                geometry.vertices.push(
+                    new THREE.Vector3(
+                        SIZE * (Math.random() - 0.5),
+                        SIZE * (Math.random() - 0.5),
+                        SIZE * (Math.random() - 0.5)
+                    )
+                );
+            }
+            const mesh = new THREE.Points(geometry, new THREE.PointsMaterial({color: '0xffffff', size: 5}));
+            scene.add(mesh);
+
+            tick();
+
+            // 毎フレーム時に実行されるループイベントです
+            function tick() {
+                // レンダリング
+                renderer.render(scene, camera);
+
+
+
+                //lightHelper.update();
+                requestAnimationFrame(tick);
+            }
+        }
+    </script>
+</head>
+<body>
+<canvas id="myCanvas"></canvas>
+</body>
+</html>

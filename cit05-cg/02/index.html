@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>bumpテスト</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
+    <script src="https://rawgithub.com/mrdoob/three.js/dev/examples/js/controls/OrbitControls.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', init);
+
+        function init() {
+            // サイズを指定
+            const width = 960;
+            const height = 540;
+
+            // レンダラーを作成
+            const renderer = new THREE.WebGLRenderer({
+                canvas: document.querySelector('#myCanvas')
+            });
+            renderer.setSize(width, height);
+
+            // シーンを作成
+            const scene = new THREE.Scene();
+
+            // カメラを作成
+            const camera = new THREE.PerspectiveCamera(45, width / height);
+            // カメラの初期座標を設定
+            camera.position.set(0, 0, 1200);
+
+            // カメラコントローラーを作成
+            const controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+            const textureLoader = new THREE.TextureLoader();
+            const fontLoader = new THREE.FontLoader();
+
+            // //hako
+            const geometry = new THREE.BoxGeometry(300, 300, 300);
+            //テクスチャ
+            const texture = textureLoader.load("stone.jpg");
+            const material = new THREE.MeshPhongMaterial();
+            material.map = texture;
+
+            const bump = textureLoader.load("stone-bump.jpg");
+            material.bumpMap = bump;
+            material.bumpscale = 0.6;
+
+            const box = new THREE.Mesh(geometry, material);
+            box.position.set(-180, 0, 0)
+            scene.add(box);
+
+            //hako2
+            const geometry2 = new THREE.BoxGeometry(300, 300, 300);
+
+            //const material = new THREE.MeshPhongMaterial({ color: 0x0000ff });
+
+            //テクスチャのみ
+            const texture2 = textureLoader.load("stone.jpg");
+            const material2 = new THREE.MeshPhongMaterial();
+            material2.map = texture2;
+
+            const box2 = new THREE.Mesh(geometry2, material2);
+            box2.position.set(180 ,0 ,0);
+            scene.add(box2);
+
+            //文字1
+            fontLoader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/fonts/helvetiker_regular.typeface.json', function ( font ) {
+
+                const textgeo1 = new THREE.TextGeometry( 'use bump', {
+                    font: font,
+                    size: 80,
+                    height: 5,
+                    curveSegments: 30,
+                } );
+
+                const text1 = new THREE.Mesh(textgeo1, new THREE.MeshPhongMaterial({ color: 0x0000ff }));
+                text1.position.set(150, 180, 0);
+                scene.add(text1);
+            } );
+
+            //文字2
+            fontLoader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/fonts/helvetiker_regular.typeface.json', function ( font ) {
+
+                const textgeo2 = new THREE.TextGeometry( 'unuse bump', {
+                    font: font,
+                    size: 80,
+                    height: 5,
+                    curveSegments: 30,
+                } );
+
+                const text1 = new THREE.Mesh(textgeo2, new THREE.MeshPhongMaterial({ color: 0x00ffff }));
+                text1.position.set(-750, -270, 0);
+                scene.add(text1);
+            } );
+
+
+            // 平行光源1
+            const directionalLight1 = new THREE.DirectionalLight(0xffffff);
+            directionalLight1.position.set(100, 100, 100);
+            // シーンに追加
+            scene.add(directionalLight1);
+            // 平行光源2
+            const directionalLight2 = new THREE.DirectionalLight(0xffffff);
+            directionalLight2.position.set(-100, 100, 100);
+            // シーンに追加
+            scene.add(directionalLight2);
+
+            tick();
+
+            // 毎フレーム時に実行されるループイベントです
+            function tick() {
+                // レンダリング
+                renderer.render(scene, camera);
+                requestAnimationFrame(tick);
+            }
+        }
+    </script>
+</head>
+<body>
+<canvas id="myCanvas"></canvas>
+</body>
+</html>
