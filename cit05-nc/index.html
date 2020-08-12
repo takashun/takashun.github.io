@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+          integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="xycoordinate.js"></script>
+    <script src="script.js"></script>
+
+    <title>1832087 数値計算レポート</title>
+</head>
+<body>
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">1832087 数値計算レポート</span>
+        <span class="navbar-text">2分法とニュートン法の違い</span>
+    </div>
+</nav>
+<div class="container mt-2">
+    <form name="main">
+        <div class="row g-3 align-items-center">
+            <div class="col-1">
+                <label for="func_y" class="col-form-label">f(x)=</label>
+            </div>
+            <div class="col-5">
+                <input type="text" id="func_y" name="func_y" value="Math.pow(x, 3.0) + x - 1.0" class="form-control">
+            </div>
+            <div class="col-6">
+                <span class="form-text">数式はJavaScriptの文法に合致した表記にしてください。</span>
+            </div>
+        </div>
+        <div class="row g-3 align-items-center">
+            <div class="col-1">
+                <label for="xmin" class="col-form-label">xmin=</label>
+            </div>
+            <div class="col-5">
+                <input type="number" id="xmin" name="xmin" value="-1" class="form-control">
+            </div>
+            <div class="col-1">
+                <label for="xmax" class="col-form-label">xmax=</label>
+            </div>
+            <div class="col-5">
+                <input type="number" id="xmax" name="xmax" value="2" class="form-control">
+            </div>
+        </div>
+        <div class="row g-3 align-items-center">
+            <div class="col-1">
+                <label for="ymin" class="col-form-label">ymin=</label>
+            </div>
+            <div class="col-5">
+                <input type="number" id="ymin" name="ymin" value="-2" class="form-control">
+            </div>
+            <div class="col-1">
+                <label for="ymax" class="col-form-label">ymax=</label>
+            </div>
+            <div class="col-5">
+                <input type="number" id="ymax" name="ymax" value="2" class="form-control">
+            </div>
+        </div>
+        <div class="row g-3 align-items-center">
+            <div class="col-3">
+                <label for="interval" class="col-form-label">遅延時間=</label>
+            </div>
+            <div class="col-3">
+                <input type="number" id="interval" name="interval" value="200" class="form-control">
+            </div>
+            <div class="col-1">
+                <label for="eps" class="col-form-label">eps=</label>
+            </div>
+            <div class="col-5">
+                <input type="number" id="eps" name="eps" value="0.0001" class="form-control">
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <h2 class="mb-0">2分法</h2>
+            <div class="row g-3 align-items-center mt-0 mb-1">
+                <div class="col-1">
+                    <label for="nibun_a" class="col-form-label">a=</label>
+                </div>
+                <div class="col-4">
+                    <input type="number" id="nibun_a" name="nibun_a" value="0" class="form-control">
+                </div>
+                <div class="col-1">
+                    <label for="nibun_b" class="col-form-label">b=</label>
+                </div>
+                <div class="col-4">
+                    <input type="number" id="nibun_b" name="nibun_b" value="2" class="form-control">
+                </div>
+                <div class="col-1">
+                    <input type="button" value="実行" onclick="nibun()" class="btn btn-primary">
+                </div>
+            </div>
+            <hr>
+            <h2 class="mb-0">ニュートン法</h2>
+            <div class="row g-3 align-items-center mt-0 mb-1">
+                <div class="col-1">
+                    <label for="newton_a" class="col-form-label">a=</label>
+                </div>
+                <div class="col-2">
+                    <input type="number" id="newton_a" name="newton_a" value="0" class="form-control">
+                </div>
+                <div class="col-2">
+                    <label for="func_z" class="col-form-label">f'(x)=</label>
+                </div>
+                <div class="col-5">
+                    <input type="text" id="func_z" name="func_z" value="3.0 * Math.pow(x, 2.0) + 1.0" class="form-control">
+                </div>
+                <div class="col-1">
+                    <input type="button" value="実行" onclick="newton()" class="btn btn-primary">
+                </div>
+            </div>
+            <div class="row">
+                <canvas id="canvas1" width="600" height="600"></canvas>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+        crossorigin="anonymous"></script>
+</body>
+</html>
