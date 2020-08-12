@@ -92,7 +92,7 @@ function func_y(x, func01) {
 }
 
 function func_z(x, func02) {
-    return 3.0 * Math.pow(x, 2.0) + 1.0;
+    return eval(func02);
 }
 
 function graph_init(func01, xmin, xmax, ymin, ymax) {
