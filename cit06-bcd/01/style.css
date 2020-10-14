@@ -1,0 +1,15 @@
+.title {
+    text-align: center;
+}
+
+.title h1 {
+    font-size: 2.5rem;
+}
+.body p {
+    line-height: 3rem;
+}
+
+.img-size {
+    height: 150px;
+    width: 150px;
+}
