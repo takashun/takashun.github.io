@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>千葉工業大学 学食紹介</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.15/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <!-- jQuery JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- moment JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/locale/ja.min.js"></script>
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.15/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.15/dist/js/uikit-icons.min.js"></script>
+    <!-- JS -->
+    <script src="js/script.js"></script>
+
+</head>
+<body class="uk-background-secondary">
+<header class="uk-light">
+    <div class="uk-container">
+        <h1 class="uk-margin-top uk-text-bold"><span>千葉工業大学 学食紹介</span></h1>
+    </div>
+    <nav class="uk-navbar-container uk-navbar-transparent uk-margin gakusyoku-navbar" uk-navbar>
+        <div class="uk-navbar-center">
+            <ul class="uk-navbar-nav">
+                <li><a href="index.html">トップ</a></li>
+                <li class="uk-active gakusyoku-navbar-active"><a href="#">メニュー</a></li>
+                <li><a href="gallery.html">ギャラリー</a></li>
+                <li><a href="https://www.cit-s.com/dining.html" target="_blank">CITサービス</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<main>
+    <div class="uk-section uk-padding-remove-top uk-padding-remove-bottom uk-light">
+        <div class="uk-container">
+            <h1 class="uk-margin-remove-bottom">メニュー</h1>
+            <p class="uk-margin-remove-top uk-text-lead uk-heading-divider">最新のメニューを紹介します。</p>
+            <h2 class="uk-margin-remove-top uk-margin-remove-bottom"><span id="menu-day">＜データ取得中＞</span>の週メニュー</h2>
+            <div uk-lightbox>
+                <a id="lightbox-url" href="https://placehold.jp/3d4070/ffffff/640x920.jpg?text=menu">
+                    <img id="img-tag" src="https://placehold.jp/3d4070/ffffff/640x920.jpg?text=menu" width="640" height="920">
+                </a>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="uk-light">
+    <div class="uk-tile uk-tile-secondary">
+        <p class="uk-text-lead">©2020 S.T. </p>
+        <p class="uk-text-meta">掲載されている写真、メニュー画像などは各著作者に帰属します。</p>
+    </div>
+</footer>
+</body>
+</html>

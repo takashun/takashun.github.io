@@ -1,0 +1,67 @@
+/* common */
+body {
+    display: flex;
+    flex-flow: column;
+    min-height: 100vh;
+}
+main {
+    flex: 1;
+}
+
+nav.gakusyoku-navbar a {
+    min-height: 40px;
+}
+
+li.gakusyoku-navbar-active {
+    background-color: #fff;
+}
+
+li.gakusyoku-navbar-active a {
+    color: #444 !important;
+}
+
+/* index */
+table.gakusyoku-menu {
+    border-collapse:collapse;
+}
+
+table.gakusyoku-menu td {
+    padding:0;
+}
+
+table.gakusyoku-menu tr td:nth-child(1):before {
+    content:  "";
+    width:  6px;
+    height:  6px;
+    display:  inline-block;
+    background-color: #222;
+    border-radius:  50%;
+    position:  relative;
+    top: -3px;
+    margin-right: 5px;
+}
+
+.gakusyoku-description dd {
+    color: #222;
+}
+
+table.gakusyoku-opening-hours {
+    border-collapse:collapse;
+}
+
+table.gakusyoku-opening-hours td {
+    padding:0;
+}
+
+table.gakusyoku-opening-hours td span.order-stop {
+    color: #666666;
+}
+
+table.gakusyoku-opening-hours td.saturday {
+    color: #1e87e5;
+}
+
+table.opening-hours tr td:nth-child(1) {
+    padding-right: 10px;
+    white-space: nowrap;
+}
