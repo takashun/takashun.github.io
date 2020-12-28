@@ -9,7 +9,7 @@ $(document).ready(function(){
 
         moment.locale('ja');
         const menu_day = moment().subtract(delta, 'week').day(1);
-        const img_url = 'https://www.cit-s.com/menu/' + menu_day.format('YYMMDD') + '_td.png'
+        const img_url = 'https://takashun.github.io/cit06-bcd/webseisaku02/img/menu/' + menu_day.format('YYMMDD') + '_td.png'
         const formatted_menu_day = menu_day.format('NNNNyoMMMDo');
 
         let flag = 0;
